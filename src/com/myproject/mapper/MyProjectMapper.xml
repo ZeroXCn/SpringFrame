@@ -5,6 +5,8 @@
 	<resultMap type="com.myproject.model.Project" id="ProjectResultMap">
 		<id property="id" column="id" />
 		<result property="name" column="name" />
+		
+		<!-- 嵌套查询 -->
 		<association property="date" column="date" select="getDate"/>
 	</resultMap>
 
