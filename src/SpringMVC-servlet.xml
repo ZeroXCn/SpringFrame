@@ -20,11 +20,27 @@
   <!-- 启用spring mvc 注解 -->  
   <context:annotation-config />  
   
+  <mvc:annotation-driven/>
+    
   <!-- 设置使用注解的类所在的jar包 -->
   <context:component-scan base-package="com.myproject.controller" />
   <context:component-scan base-package="com.myproject.service" />
 
-  <mvc:annotation-driven/>
+
+    <!-- 配置响应体Controller直接返回对象的JSON -jackson-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>text/html;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
  
  
 </beans>

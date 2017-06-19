@@ -23,18 +23,18 @@ public class ProjectController {
     private IProjectService projectService;
  
     @RequestMapping("/getcount.do")
-    public @ResponseBody String getProjectsCount() {
-    	return projectService.getProjectsCount().toString();
+    public @ResponseBody Integer getProjectsCount() {
+    	return projectService.getProjectsCount();
     }
     
     @RequestMapping("/getbyid.do")
-    public @ResponseBody String getProjectById(int id) {
+    public @ResponseBody Project getProjectById(int id) {
         Project project = this.projectService.getProjectById(id);
-        return project.toString();
+        return project;
     }
     
     @RequestMapping("/getjson.do")
-    public @ResponseBody String getProjectsJson(HttpServletRequest request) {
+    public @ResponseBody List<Project> getProjectsJson(HttpServletRequest request) {
     	Map<String,Object> map=new HashMap<String,Object>();
     	map.put("sort", request.getParameter("sort"));
     	map.put("order", request.getParameter("order"));
@@ -42,19 +42,19 @@ public class ProjectController {
     	map.put("limit", request.getParameter("limit"));
     	
     	List<Project> list = projectService.getProjectsJson(map);
-        return list.toString();
+        return list;
     }
     
     @RequestMapping("/getlist.do")
-    public @ResponseBody String getProjectsList(@RequestParam(value="offset", required=true) int offset,@RequestParam(value="limit", required=true) int limit) {
+    public @ResponseBody List<Project> getProjectsList(@RequestParam(value="offset", required=true) int offset,@RequestParam(value="limit", required=true) int limit) {
     	List<Project> list = projectService.getProjectsList(offset,limit);
-        return list.toString();
+        return list;
     }
     
     @RequestMapping("/add.do")
     public @ResponseBody String addProject(@RequestBody Project obj) {
         projectService.addProject(obj);
         
-        return "index.html";//直接跳转回首页
+        return "{\"code\":1,\"url\":\"index.html\"}"; 
     }
 }
