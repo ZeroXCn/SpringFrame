@@ -78,8 +78,8 @@
  	<!-- 自动扫描mapper -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
- 		<!-- 特殊指定位置指定,与自动扫描的路径不能有名字冲突 -->
-       <!--  <property name="configLocation"  value="classpath:mybatis-config"></property> -->
+ 		<!-- 其他配置文件的键值读取-->
+        <property name="configLocation"  value="classpath:mybatis-config.xml" />
         
         <property name="mapperLocations" value="classpath:com/myproject/mapper/**/*.xml" />
     </bean>

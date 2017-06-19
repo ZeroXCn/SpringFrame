@@ -19,7 +19,7 @@
  
   <!-- 启用spring mvc 注解 -->  
   <context:annotation-config />  
-  
+   <!-- 使用annotation 自动注册bean,并保证@Required,@Autowired,@Controller的属性被注入， 包路径自己修改--> 
   <mvc:annotation-driven/>
     
   <!-- 设置使用注解的类所在的jar包 -->
