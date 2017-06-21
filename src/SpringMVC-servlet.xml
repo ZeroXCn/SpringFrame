@@ -25,7 +25,7 @@
   <!-- 设置使用注解的类所在的jar包 -->
   <context:component-scan base-package="com.myproject.controller" />
   <context:component-scan base-package="com.myproject.service" />
-
+  <context:component-scan base-package="com.myproject.dao" />
 
     <!-- 配置响应体Controller直接返回对象的JSON -jackson-->
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
@@ -41,6 +41,5 @@
             </list>
         </property>
     </bean>
- 
  
 </beans>
