@@ -7,13 +7,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.myproject.dao.MyProjectDao;
+import com.myproject.dao.ProjectDao;
 import com.myproject.model.Project;
 
 @Service("ProjectService")
 public class ProjectService implements IProjectService {
 	@Resource
-	private MyProjectDao myprojectdao;
+	private ProjectDao myprojectdao;
 	
 	@Override
 	public Integer getProjectsCount() {

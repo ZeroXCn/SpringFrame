@@ -7,7 +7,7 @@ import java.util.Map;
 
 import com.myproject.model.Project;
 
-public interface MyProjectDao {
+public interface ProjectDao {
 	Integer getProjectsCount();
 	Project getProjectById(int id);
 	List<Project> getProjectsJson(Map<String,Object> param);
